@@ -35,7 +35,8 @@ const UserList = (props) => {
             <Avatar source={{ uri: "http://www.w3bai.com/w3css/img_avatar3.png" }} rounded />
             <ListItem.Content>
               <ListItem.Title>{user.name}</ListItem.Title>
-              <ListItem.Subtitle>{user.email}</ListItem.Subtitle>
+              <ListItem.Subtitle>Email: {user.email}</ListItem.Subtitle>
+              <ListItem.Subtitle>Phone: {user.phone}</ListItem.Subtitle>
             </ListItem.Content>
           </ListItem>
         );

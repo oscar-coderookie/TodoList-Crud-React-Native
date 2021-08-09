@@ -5,12 +5,15 @@ import { View, TextInput, ScrollView, Button, StyleSheet, ActivityIndicator } fr
 import firebase from "../database/firebase";
 
 const UserDetail = (props) => {
-  const [user, setUser] = useState({
-    id: "",
-    name: "",
-    email: "",
-    phone: "",
-  });
+
+    const INITIAL_STATE = {
+        id: "",
+        name: "",
+        email: "",
+        phone: "",
+      }
+
+  const [user, setUser] = useState(INITIAL_STATE);
 
   const [loading, setLoading] = useState(true);
 
@@ -36,6 +39,17 @@ const UserDetail = (props) => {
   const deleteUser = async () => {
       const dbRef = firebase.db.collection('users').doc(props.route.params.userId);
       await dbRef.delete();
+      props.navigation.navigate('UserList')
+  }
+
+  const updateUser = async () => {
+      const dbRef= firebase.db.collection('users').doc(user.id);
+      await dbRef.set({
+          name: user.name,
+          email: user.email,
+          phone: user.phone
+      });
+      setUser(INITIAL_STATE);
       props.navigation.navigate('UserList')
   }
 
@@ -78,7 +92,7 @@ const UserDetail = (props) => {
         />
       </View>
       <View style={styles.inputGroup}>
-        <Button title="Update User" onPress={() => alert("works")} />
+        <Button title="Update User" onPress={() => updateUser()} />
         <Button color="#e37399" title="Delete User" onPress={() => openConfirmAlert()} />
       </View>
     </ScrollView>
