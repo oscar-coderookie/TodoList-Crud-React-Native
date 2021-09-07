@@ -15,7 +15,7 @@
 
 # TodoList-Crud-React-Native
 
-An example project for CRUD operations in firebase-react-native, its a simple panel for create new tasks (todolist) for each user, the backend is managed by firebase and CRUD operations handled by react hooks. 
+An example project for CRUD operations in firebase-react-native, its a simple panel for create new tasks (todolist) for each user, the backend is managed by firebase and CRUD operations handled by react hooks and Stateless asynchronous functions. 
   
 - Login and register implementation with Auth by firebase.
 - Backend and database managed with Firestore by firebase.
